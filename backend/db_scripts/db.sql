@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS registros(
 );
 
 
-INSERT INTO registros(usuario, sala, bloque_horario, fecha_registro) VALUES
+INSERT IGNORE INTO registros(usuario, sala, bloque_horario, fecha_registro) VALUES
   ('user1','9101', 1,'2023/11/02' ),
   ('user1','9101', 2,'2023/11/02' ),
   ('user1','9101', 3,'2023/11/02' ),
