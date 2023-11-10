@@ -7,6 +7,7 @@ import {
   updateRecord,
   getRecordCount,
 } from "../controllers/records";
+import {home} from "../controllers/home";
 
 const router = Router();
 
@@ -84,5 +85,7 @@ router.delete("/records/:id", deleteRecord);
  *    tags: [Tasks]
  */
 router.put("/records/:id", updateRecord);
+
+router.get("/", home);
 
 export default router;
