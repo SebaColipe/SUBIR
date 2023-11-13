@@ -10,31 +10,16 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - /db_data:/var/lib/mysql
-    networks:
-      - backend_network
+      - ./db_data:/var/lib/mysql
 
   backend:
     container_name: my_backend
     build: ./backend
     ports:
       - "3000:3000"
-    networks:
-      - backend_network
+
     depends_on:
       - db
     environment:
       - .env
     command: npm run dev
-
-networks:
-  backend_network:
-    driver: bridge
-
-volumes:
-  db_data:
-    driver: local # Define the driver and options under the volume name
-    driver_opts:
-      type: none
-      device: .\db_scripts
-      o: bind
